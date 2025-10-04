@@ -1,0 +1,73 @@
+@startuml FlujoCreacionOrden
+title Flujo Principal - Creación de Orden
+start
+
+:Cliente accede al sistema;
+:Cliente navega y selecciona productos;
+:Cliente agrega productos al carrito;
+
+repeat
+    :Cliente agrega más productos?;
+repeat while (Sí)
+
+:Cliente procede al pago;
+
+:Intento de validación 1;
+:Sistema valida datos del cliente;
+if (Datos válidos?) then (Sí)
+    :Continuar al procesamiento de pago;
+else (No)
+    :Solicitar corrección de datos al cliente;
+    :Cliente corrige datos;
+    :Intento de validación 2;
+    :Sistema valida datos del cliente;
+    if (Datos válidos?) then (Sí)
+        :Continuar al procesamiento de pago;
+    else (No)
+        :Mostrar Pantalla de información;
+        stop
+    endif
+endif
+
+:Intento de pago 1;
+:Sistema procesa pago (Intento 1);
+if (Pago exitoso?) then (Sí)
+    :Sistema crea orden;
+    :Publicar evento CREATE_ORDER;
+    :Generar factura virtual;
+    :Notificar confirmación al cliente;
+    :Mostrar número de seguimiento;
+    stop
+else (No)
+    :Notificar error de pago;
+    :Sugerir reintentar;
+    :Intento de pago 2;
+    :Sistema procesa pago (Intento 2);
+    if (Pago exitoso?) then (Sí)
+        :Sistema crea orden;
+        :Publicar evento CREATE_ORDER;
+        :Generar factura virtual;
+        :Notificar confirmación al cliente;
+        :Mostrar número de seguimiento;
+        stop
+    else (No)
+        :Notificar error de pago;
+        :Sugerir reintentar;
+        :Intento de pago 3;
+        :Sistema procesa pago (Intento 3);
+        if (Pago exitoso?) then (Sí)
+            :Sistema crea orden;
+            :Publicar evento CREATE_ORDER;
+            :Generar factura virtual;
+            :Notificar confirmación al cliente;
+            :Mostrar número de seguimiento;
+            stop
+        else (No)
+            :Pago falló 3 veces;
+            :Enviar cliente a navegar de nuevo;
+            stop
+        endif
+    endif
+endif
+
+@enduml

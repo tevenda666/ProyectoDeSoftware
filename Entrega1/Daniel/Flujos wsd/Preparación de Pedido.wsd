@@ -1,0 +1,41 @@
+@startuml FlujoPreparacionCocina
+title Flujo Cocina - Preparación de Pedido
+start
+:Servicio Órdenes recibe evento CREATE_ORDER;
+:Publicar orden para Cocina;
+:Chef selecciona orden pendiente;
+:Consultar receta requerida;
+:Solicitar verificación de ingredientes a Bodega;
+
+:Servicio Bodega verifica existencia de ingredientes;
+if (Ingredientes disponibles?) then (Sí)
+    :Confirmar disponibilidad a Cocina;
+else (No)
+    :Confirmar falta de ingredientes a Cocina;
+endif
+
+:Intento validación 1;
+:Verificar ingredientes reservados;
+if (Ingredientes completos?) then (Sí)
+    :Proceder a preparar plato;
+else (No)
+    :Notificar faltantes al Chef;
+    :Solicitar sustitución o corrección;
+    :Intento validación 2;
+    :Verificar nuevamente disponibilidad;
+    if (Ingredientes completos?) then (Sí)
+        :Proceder a preparar plato;
+    else (No)
+        :Mostrar Pantalla de información (ingredientes faltantes);
+        :Inhabilitar Producto;
+        stop
+    endif
+endif
+
+:Chef prepara plato;
+:Actualizar estado orden (EN_PREPARACION);
+:Completar preparación;
+:Publicar evento ORDER_COMPLETED;
+:Notificar a Servicio Órdenes;
+stop
+@enduml
