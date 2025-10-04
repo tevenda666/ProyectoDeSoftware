@@ -1,0 +1,32 @@
+@startuml FlujoSeguimientoCliente
+title Flujo Seguimiento de Orden - Cliente
+start
+:Cliente ingresa al sistema;
+:Cliente inicia sesión;
+:Cliente accede a "Mis Órdenes";
+
+if (Tiene órdenes activas?) then (Sí)
+    :Seleccionar orden a consultar;
+    :Sistema consulta estado en tiempo real;
+    
+    switch (Estado orden)
+    case (PENDIENTE)
+        :Mostrar "Orden recibida\nEsperando preparación";
+    case (EN_PREPARACION)
+        :Mostrar "En cocina";
+    case (LISTO)
+        :Mostrar "¡Listo para entregar!";
+    case (COMPLETADO)
+        :Mostrar "Orden completada\n¡Gracias!";
+    case (CANCELADO)
+        :Mostrar "Orden cancelada";
+    endswitch
+    :Mostrar timeline de progreso;
+    :Ofrecer opción de contacto (soporte) y ver detalles de la orden;
+else (No)
+    :Mostrar "No hay órdenes activas";
+    :Sugerir realizar nuevo pedido;
+endif
+
+stop
+@enduml

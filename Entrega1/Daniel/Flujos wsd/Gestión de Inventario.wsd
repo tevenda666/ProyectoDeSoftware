@@ -1,0 +1,21 @@
+@startuml FlujoGestionInventario
+title Flujo Gestión de Inventario - Bodega
+|Bodega|
+start
+:Servicio Bodega recibe INGREDIENTS_ORDER;
+:Verificar stock disponible;
+if (Stock suficiente?) then (Sí)
+    :Descontar del inventario;
+    :Actualizar niveles de stock;
+    :Publicar evento INGREDIENTS_READY (a Cocina);
+else (No)
+    :Generar alerta stock bajo;
+    :Crear orden de compra proveedor;
+    :Publicar evento PURCHASE_ORDER_CREATED;
+    stop
+endif
+
+:Registrar movimiento en histórico;
+:Actualizar métricas para administrador;
+stop
+@enduml

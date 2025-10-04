@@ -1,0 +1,32 @@
+@startuml FlujoAdministracion
+title Flujo Administración del Sistema
+start
+
+:Administrador inicia sesión;
+:Acceder al dashboard administrativo;
+
+:Seleccionar módulo de interés;
+
+switch (Módulo seleccionado)
+case (Métricas Órdenes)
+    :Consultar órdenes por período;
+    :Analizar tiempos promedios;
+    :Generar reporte rendimiento;
+case (Gestión Inventario)
+    :Ver niveles stock actuales;
+    :Revisar alertas stock bajo;
+    :Ajustar parámetros reorden;
+case (Gestión Usuarios)
+    :Ver usuarios registrados;
+    :Gestionar roles permisos;
+    :Revisar actividad reciente;
+case (Reportes)
+    :Generar reportes personalizados;
+    :Exportar datos históricos;
+    :Analizar tendencias;
+endswitch
+
+:Visualizar datos en dashboard;
+
+stop
+@enduml
