@@ -1,0 +1,55 @@
+@startmindmap
+*[#Green] Sistema Gestión Órdenes y Cocina
+**[#Orange] 1. Gestión Proyecto
+***[#Yellow] 1.1 Planificación
+***[#Yellow] 1.2 Gestión Riesgos
+***[#Yellow] 1.3 Seguimiento
+***[#Yellow] 1.4 Cierre
+**[#Orange] 2. Módulo Usuarios
+***[#Yellow] 2.1 Registro/Autenticación
+****[#LightBlue] 2.1.1 RF01 - Registro Clientes
+****[#LightBlue] 2.1.2 RF02 - Registro Usuarios
+****[#LightBlue] 2.1.3 RF03 - Validación Login
+****[#LightBlue] 2.1.4 RF04 - Recuperación Contraseña
+***[#Yellow] 2.2 Gestión Perfiles
+***[#Yellow] 2.3 Seguridad Accesos
+**[#Orange] 3. Módulo Catálogo
+***[#Yellow] 3.1 Gestión Productos
+***[#Yellow] 3.2 Búsqueda/Filtros
+****[#LightBlue] 3.2.1 RF05 - Buscador
+****[#LightBlue] 3.2.2 RF06 - Filtradores
+***[#Yellow] 3.3 Navegación
+**[#Orange] 4. Módulo Carrito/Órdenes
+***[#Yellow] 4.1 Carrito Compras
+****[#LightBlue] 4.1.1 RF07 - Carrito Virtual
+***[#Yellow] 4.2 Checkout/Pagos
+****[#LightBlue] 4.2.1 RF08 - Sección Pago
+****[#LightBlue] 4.2.2 RF09 - Pagos Virtuales
+***[#Yellow] 4.3 Facturación
+****[#LightBlue] 4.3.1 RF10 - Factura Virtual
+**[#Orange] 5. Módulo Cocina
+***[#Yellow] 5.1 Gestión Órdenes
+***[#Yellow] 5.2 Recetas/Preparación
+***[#Yellow] 5.3 Seguimiento Estados
+**[#Orange] 6. Módulo Bodega
+***[#Yellow] 6.1 Inventario Ingredientes
+***[#Yellow] 6.2 Control Stock
+***[#Yellow] 6.3 Integración Proveedores
+**[#Orange] 7. Módulo Administrativo
+***[#Yellow] 7.1 Dashboard Métricas
+***[#Yellow] 7.2 Configuración Sistema
+***[#Yellow] 7.3 Datos Maestros
+**[#Orange] 8. Infraestructura
+***[#Yellow] 8.1 Microservicios
+***[#Yellow] 8.2 Mensajería Eventos
+***[#Yellow] 8.3 Base Datos
+***[#Yellow] 8.4 APIs Integración
+**[#Orange] 9. Calidad/Pruebas
+***[#Yellow] 9.1 Estrategia Pruebas
+***[#Yellow] 9.2 Pruebas Automatizadas
+***[#Yellow] 9.3 Pruebas Integración
+**[#Orange] 10. Implementación
+***[#Yellow] 10.1 Configuración Ambientes
+***[#Yellow] 10.2 Despliegue
+***[#Yellow] 10.3 Capacitación
+@endmindmap
